@@ -3,11 +3,8 @@ import Menu from './Components/Menu'
 import Routes from './routes'
 import Rodape from './Components/Rodape'
 
-
 import { BrowserRouter } from 'react-router-dom';
-
 import { Container } from 'react-bootstrap';
-
 
 
 
@@ -19,12 +16,14 @@ function App() {
       <Menu/>
       </header>
       <main>
-        <Container className="ml-0 mr-0">
+        <Container>
           <Routes />
         </Container>
       </main>
       <footer>
-        <center><Rodape/></center>
+        
+          <center><Rodape/></center>
+        
       </footer>
     </div>
     </BrowserRouter>

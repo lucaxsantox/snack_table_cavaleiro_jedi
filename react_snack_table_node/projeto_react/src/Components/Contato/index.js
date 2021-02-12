@@ -27,7 +27,7 @@ const Contato = () => {
   
   function handleSubmit(event) {
       event.preventDefault()
-      fetch('http://localhost:3050/mensagem', {
+      fetch('http://localhost:1501/mensagem', {
           method: "POST",
           headers: {"Content-Type" : "application/json"},
           body : JSON.stringify(form)

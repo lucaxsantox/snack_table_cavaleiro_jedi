@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
-
-
-import Produto from '../Components/Produto'
-
+//import Produto from '../Components/Produto'
 import { Container, Row } from 'react-bootstrap';
 import './Produtos.css'
+import { lazy, Suspense } from 'react'
+
+const Produto = lazy(() => import('../Components/Produto'))
+
 
 
 export default function Produtos() {
@@ -13,7 +14,7 @@ export default function Produtos() {
     const [ produtos, setProdutos] = useState([]);
 
     useEffect (async () => {
-        const awnser = await fetch('http://localhost:3050/')
+        const awnser = await fetch('http://localhost:1501/produtos')
         const data = await awnser.json()
         setProdutos(data);
        } , [] );
@@ -31,6 +32,7 @@ export default function Produtos() {
             if (filtro == item.categoria) {
 
             return <Produto imagem={item.imagem} descricao={item.descricao} preco_inicial={item.preco_inicial} categoria={item.categoria}  preco_final={item.preco_final}/>
+                    
         }   
         else if (filtro =="") {
             return <Produto imagem={item.imagem} descricao={item.descricao} preco_inicial={item.preco_inicial} categoria={item.categoria}  preco_final={item.preco_final}/>            
@@ -39,7 +41,7 @@ export default function Produtos() {
        
 
     return (
-        <Container className="d-flex align-content-start">
+        <Container className="d-flex align-content-start lista">
             
             <ListGroup defaultActiveKey="#link1">
             <ListGroup.Item action href="#link1" action variant="dark" id="" onClick={filtrar}>
@@ -63,8 +65,9 @@ export default function Produtos() {
             
         </ListGroup>
             <Row className="ml-3">
+                <Suspense fallback={<center><h1>Carregando</h1></center>}>
             {mapeamento}
-            
+            </Suspense>
             </Row>
         </Container>
         
