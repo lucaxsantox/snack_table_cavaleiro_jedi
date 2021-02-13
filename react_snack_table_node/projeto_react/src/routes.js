@@ -9,7 +9,7 @@ import Pagina_Inicial from './Pages/Pagina_Inicial';
 function Routes(){
     return (
         <Switch>
-            <Route exact path="/Pagina_Inicial" component={ Pagina_Inicial } />
+            <Route exact path="/" component={ Pagina_Inicial } />
             <Route exact path="/Produtos" component={ Produtos } />
             <Route exact path="/Lojas" component={ Lojas } />
             <Route exact path="/Fale_Conosco" component={ Fale_Conosco } />

@@ -26,7 +26,7 @@ import { Link, withRouter } from 'react-router-dom';
             <Nav activeKey={location.pathname}>
 
             <Nav.Item>
-                        <Nav.Link as={Link} href="/Pagina_Inicial" to="Pagina_Inicial">Pagina Inicial</Nav.Link>
+                        <Nav.Link as={Link} href="/" to="Pagina_Inicial">Pagina Inicial</Nav.Link>
             </Nav.Item>
    
             <Nav.Item>
